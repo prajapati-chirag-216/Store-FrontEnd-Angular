@@ -1,6 +1,6 @@
 <div class="auth-container">
   <h2>Login</h2>
-  <form (ngSubmit)="onLogin()">
+  <form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm" novalidate>
     <div class="form-group">
       <label for="email">Email:</label>
       <input
@@ -9,7 +9,15 @@
         name="email"
         type="email"
         required
+        #email="ngModel"
       />
+      <div
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+        class="error"
+      >
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Invalid email address.</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
@@ -19,8 +27,19 @@
         name="password"
         type="password"
         required
+        minlength="6"
+        #password="ngModel"
       />
+      <div
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="error"
+      >
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+        <div *ngIf="password.errors?.['minlength']">
+          Password must be at least 6 characters long.
+        </div>
+      </div>
     </div>
-    <button type="submit" class="btn">Sign In</button>
+    <button type="submit" class="btn">Log In</button>
   </form>
 </div>

@@ -1,0 +1,49 @@
+<div class="product-container" id="product-container">
+  <div class="container-display">
+    @if (!isLoading) {
+    <div class="display-slider">
+      <div
+        *ngFor="let image of productDetails.images; let i = index"
+        class="slider-image"
+        (click)="displayChangeHandler(image)"
+      >
+        <img [src]="image" />
+      </div>
+    </div>
+    <div class="display-image">
+      <img *ngIf="displayImage" [src]="displayImage" />
+    </div>
+    }
+  </div>
+  @if(!isLoading){
+  <div class="details-container">
+    <div class="row-items">
+      <h1 class="item-name">{{ productDetails.name }}</h1>
+      <span class="item-price">{{ productDetails.price }} &#8377;</span>
+    </div>
+
+    <button class="btn" (click)="addItemHandler()">Add to cart</button>
+    <div class="description-container">
+      <label class="description-label">Description</label>
+      <p class="item-description">
+        {{ productDetails.description }} Discover the ultimate blend of
+        innovation and design with our SmartGadget Pro. Crafted for the modern
+        enthusiast, this versatile device is more than just a gadget—it's a
+        gateway to a smarter lifestyle. Featuring a sleek, lightweight aluminum
+        body, the SmartGadget Pro is both durable and stylish, making it a
+        perfect companion for your everyday adventures. Equipped with
+        cutting-edge technology, the SmartGadget Pro boasts a vibrant,
+        high-definition display that brings your content to life with stunning
+        clarity and vivid colors. The intuitive touch interface ensures
+        effortless navigation, while the advanced processor delivers
+        lightning-fast performance, whether you're multitasking, streaming your
+        favorite shows, or playing graphics-intensive games. Stay connected and
+        productive on the go with the SmartGadget Pro's seamless integration of
+        wireless connectivity options, including Wi-Fi, Bluetooth, and NFC. The
+        long-lasting battery life ensures that you remain powered throughout the
+        day, with quick-charge capabilities that minimize downtime.
+      </p>
+    </div>
+  </div>
+  }
+</div>

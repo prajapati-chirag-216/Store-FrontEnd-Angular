@@ -1,7 +1,7 @@
 .auth-container {
   max-width: 40rem;
   margin: 5rem auto;
-  padding: 20px;
+  padding: 3rem;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -14,7 +14,6 @@
   text-transform: uppercase;
   margin-bottom: 20px;
 }
-
 .form-group {
   margin-bottom: 15px;
 }
@@ -22,7 +21,7 @@
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .form-group input {
@@ -31,20 +30,35 @@
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 3px;
+  font-size: 1.3rem;
 }
 
 .btn {
   margin-top: 1rem;
   width: 100%;
-  padding: 0.6rem;
+  padding: 1rem;
   background-color: #0009;
   border: none;
   border-radius: 3px;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 
 .btn:hover {
   background-color: #000;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 0.4rem;
+}
+
+.btn {
+  margin-top: 1rem;
 }

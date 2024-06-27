@@ -1,10 +1,12 @@
 <nav class="navbar">
   <div class="navbar-brand">
-    <a class="navbar-item" routerLink="/home">My App</a>
+    <a class="navbar-item" routerLink="/">My App</a>
   </div>
   <div class="navbar-menu">
     <a class="navbar-item" routerLink="/signup">Sign Up</a>
     <a class="navbar-item" routerLink="/login">Login</a>
-    <button class="navbar-btn" (click)="onLogout()">Logout</button>
+      <button class="navbar-btn navbar-btn-right" (click)="onLogout()">Logout</button>
+      <button class="navbar-btn" (click)="openCart()">My Cart</button>
+    <app-cart></app-cart>
   </div>
 </nav>

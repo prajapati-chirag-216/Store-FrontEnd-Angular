@@ -7,6 +7,7 @@ export class AuthService {
   private apiUrl = 'http://localhost:8000';
   constructor() {}
 
+  // user apis
   async getUserProfile() {
     try {
       const config = {
@@ -28,14 +29,11 @@ export class AuthService {
         data: user,
         withCredentials: true,
       };
-      const response = await AxiosInstance(config);
-
-      return response.data;
+      await AxiosInstance(config);
     } catch (error) {
       throw error;
     }
   }
-
   async login(credentials: any) {
     try {
       const config = {
@@ -44,14 +42,11 @@ export class AuthService {
         data: credentials,
         withCredentials: true,
       };
-      const response = await AxiosInstance(config);
-
-      return response.data;
+      await AxiosInstance(config);
     } catch (error) {
       throw error;
     }
   }
-
   async logout() {
     try {
       const config = {
@@ -59,9 +54,7 @@ export class AuthService {
         url: `${this.apiUrl}/user/logout`,
         withCredentials: true,
       };
-      const response = await AxiosInstance(config);
-
-      return response.data;
+      await AxiosInstance(config);
     } catch (error) {
       throw error;
     }

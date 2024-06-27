@@ -1,3 +1,15 @@
-@if (isLoggedIn) {
-<h1>Hello {{ userName }}</h1>
-}
+<div class="item-container">
+  <h1 class="container-title">Inventory</h1>
+  <app-grid>
+    <div *ngFor="let product of products" class="container-card">
+      <div class="container-item" (click)="navigateHandler(product['_id'])">
+        <h2 class="container-price">${{ product["price"] }}</h2>
+        <div class="container-img">
+          <img [src]="product['images'][0]" [alt]="product['name']" />
+        </div>
+        <h2 class="container-heading">{{ product["name"] }}</h2>
+      </div>
+      <button class="btn" (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </app-grid>
+</div>

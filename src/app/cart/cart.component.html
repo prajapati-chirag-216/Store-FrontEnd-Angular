@@ -1,0 +1,32 @@
+<div class="cart-container" [style.right]="isOpen ? '0' : '-70rem'">
+  <div class="container-heading">
+    <h1>Cart</h1>
+    <span (click)="closeCart()" class="close-btn">&#x2715;</span>
+  </div>
+  <div class="container-items">
+    <div *ngFor="let item of cartItems" class="container-item">
+      <div class="item-img">
+        <img [src]="item.images[0]" />
+      </div>
+      <div class="item-details">
+        <h2 class="item-name">{{ item.name }}</h2>
+        <p class="item-description">{{ item.description.slice(0, 70) }}..</p>
+        <div class="qty-controller">
+          <button (click)="decreaseQty(item._id)" class="qty-btn">-</button>
+          <span class="qty-text">{{ item.quantity }}</span>
+          <button (click)="increaseQty(item._id)" class="qty-btn">+</button>
+        </div>
+        <div class="item-controller">
+          <h2 class="item-price">{{ item.price }}</h2>
+          <h2 (click)="removeItem(item._id)" class="item-btn">Remove</h2>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="cartItems.length === 0" class="empty-text">
+      <p>Your cart is empty!</p>
+    </div>
+  </div>
+  <button class="btn" [disabled]="cartItems.length === 0" (click)="checkout()">
+    Checkout
+  </button>
+</div>
